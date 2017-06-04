@@ -1,0 +1,19 @@
+{
+  "name": "canvas-animation-skeleton",
+  "version": "1.0.0",
+  "description": "skeleton for canvas animation",
+  "author": "soarflat",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.1",
+    "browser-sync": "^2.18.12",
+    "webpack": "^2.6.1"
+  },
+  "scripts": {
+    "server": "browser-sync start --index 'docs/index.html' --server --files 'docs/*'",
+    "webpack:build": "webpack",
+    "webpack:watch": "webpack --watch"
+  }
+}
