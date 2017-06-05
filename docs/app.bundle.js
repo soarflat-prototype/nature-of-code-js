@@ -73,5 +73,79 @@
 "use strict";
 
 
+var _Walker = __webpack_require__(1);
+
+var _Walker2 = _interopRequireDefault(_Walker);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+var walker = new _Walker2.default({ ctx: ctx });
+
+walker.animation();
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Walker = function () {
+  function Walker(option) {
+    _classCallCheck(this, Walker);
+
+    this.ctx = option.ctx;
+    this.ctx.fillStyle = 'white';
+    this.x = window.innerWidth / 2;
+    this.y = window.innerHeight / 2;
+    this.animation = this.animation.bind(this);
+  }
+
+  _createClass(Walker, [{
+    key: 'step',
+    value: function step() {
+      var rand = Math.floor(Math.random() * 4);
+
+      if (rand === 0) {
+        this.x += 1;
+      } else if (rand === 1) {
+        this.x -= 1;
+      } else if (rand === 2) {
+        this.y += 1;
+      } else if (rand === 3) {
+        this.y -= 1;
+      }
+    }
+  }, {
+    key: 'draw',
+    value: function draw() {
+      this.ctx.fillRect(this.x, this.y, 1, 1);
+    }
+  }, {
+    key: 'animation',
+    value: function animation() {
+      window.requestAnimationFrame(this.animation);
+      this.step();
+      this.draw();
+    }
+  }]);
+
+  return Walker;
+}();
+
+exports.default = Walker;
+
 /***/ })
 /******/ ]);
