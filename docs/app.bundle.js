@@ -63,32 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _Walker = __webpack_require__(1);
-
-var _Walker2 = _interopRequireDefault(_Walker);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-var walker = new _Walker2.default({ ctx: ctx });
-
-walker.animation();
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -116,17 +95,11 @@ var Walker = function () {
   _createClass(Walker, [{
     key: 'step',
     value: function step() {
-      var rand = Math.floor(Math.random() * 4);
+      var stepX = Math.random() * 2 - 1;
+      var stepY = Math.random() * 2 - 1;
 
-      if (rand === 0) {
-        this.x += 1;
-      } else if (rand === 1) {
-        this.x -= 1;
-      } else if (rand === 2) {
-        this.y += 1;
-      } else if (rand === 3) {
-        this.y -= 1;
-      }
+      this.x += stepX;
+      this.y += stepY;
     }
   }, {
     key: 'draw',
@@ -146,6 +119,27 @@ var Walker = function () {
 }();
 
 exports.default = Walker;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Walker = __webpack_require__(0);
+
+var _Walker2 = _interopRequireDefault(_Walker);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+var walker = new _Walker2.default({ ctx: ctx });
+
+walker.animation();
 
 /***/ })
 /******/ ]);

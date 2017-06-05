@@ -9,17 +9,11 @@ class Walker {
   }
 
   step() {
-    const rand = Math.floor(Math.random() * 4);
+    const stepX = Math.random() * 2 - 1;
+    const stepY = Math.random() * 2 - 1;
 
-    if (rand === 0) {
-      this.x += 1;
-    } else if (rand === 1) {
-      this.x -= 1;
-    } else if (rand === 2) {
-      this.y += 1;
-    } else if (rand === 3) {
-      this.y -= 1;
-    }
+    this.x += stepX;
+    this.y += stepY;
   }
 
   draw() {
