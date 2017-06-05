@@ -21,5 +21,8 @@
     "watch:css": "yarn run build:css -- --watch",
     "watch:js": "webpack --watch",
     "watch": "npm-run-all --parallel watch:*"
+  },
+  "dependencies": {
+    "reset-css": "^2.2.0"
   }
 }
