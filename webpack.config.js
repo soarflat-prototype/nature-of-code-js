@@ -2,12 +2,12 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: './src/js/app.js',
+    _I_1_RandomWalk: './src/js/_I_1_RandomWalk.js',
   },
 
   output: {
-    path: path.join(__dirname, 'docs'),
-    filename: '[name].bundle.js',
+    path: path.join(__dirname, 'docs/js'),
+    filename: '[name].js',
   },
 
   module: {
