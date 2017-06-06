@@ -14,7 +14,7 @@
     "webpack": "^2.6.1"
   },
   "scripts": {
-    "server": "browser-sync start --server 'docs' --files 'docs/*'",
+    "server": "browser-sync start --server 'docs' --files 'docs/**/*'",
     "build:css": "node-sass --output-style compressed -o docs/css src/scss",
     "build:js": "webpack",
     "build": "npm-run-all build:*",
