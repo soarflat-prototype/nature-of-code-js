@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   entry: {
     _I_1_RandomWalk: './src/js/_I_1_RandomWalk.js',
+    _I_2_RandomDistribution: './src/js/_I_2_RandomDistribution.js',
   },
 
   output: {
