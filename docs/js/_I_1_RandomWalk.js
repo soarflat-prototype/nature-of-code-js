@@ -1,90 +1,6 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+class Walker {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Walker = function () {
-  function Walker(option) {
-    _classCallCheck(this, Walker);
-
+  constructor(option) {
     this.ctx = option.ctx;
     this.ctx.fillStyle = 'white';
     this.x = window.innerWidth / 2;
@@ -92,54 +8,30 @@ var Walker = function () {
     this.animation = this.animation.bind(this);
   }
 
-  _createClass(Walker, [{
-    key: 'step',
-    value: function step() {
-      var stepX = Math.random() * 2 - 1;
-      var stepY = Math.random() * 2 - 1;
+  step() {
+    const stepX = Math.random() * 2 - 1;
+    const stepY = Math.random() * 2 - 1;
 
-      this.x += stepX;
-      this.y += stepY;
-    }
-  }, {
-    key: 'draw',
-    value: function draw() {
-      this.ctx.fillRect(this.x, this.y, 1, 1);
-    }
-  }, {
-    key: 'animation',
-    value: function animation() {
-      window.requestAnimationFrame(this.animation);
-      this.step();
-      this.draw();
-    }
-  }]);
+    this.x += stepX;
+    this.y += stepY;
+  }
 
-  return Walker;
-}();
+  draw() {
+    this.ctx.fillRect(this.x, this.y, 1, 1);
+  }
 
-exports.default = Walker;
+  animation() {
+    window.requestAnimationFrame(this.animation);
+    this.step();
+    this.draw();
+  }
 
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+}
 
-"use strict";
-
-
-var _Walker = __webpack_require__(0);
-
-var _Walker2 = _interopRequireDefault(_Walker);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-var walker = new _Walker2.default({ ctx: ctx });
+const walker = new Walker({ ctx: ctx });
 
 walker.animation();
-
-/***/ })
-/******/ ]);
