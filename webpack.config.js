@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
+    _C1_7_Motion101: './src/js/_C1_7_Motion101.js',
   },
 
   output: {
