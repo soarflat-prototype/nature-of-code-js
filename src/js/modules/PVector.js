@@ -45,7 +45,7 @@ export default class PVector {
   }
 
   /**
-   * 平方根
+   * ベクトルの大きさを算出する
    */
   mag() {
     return Math.sqrt(this.x * this.x + this.y * this.y);
@@ -59,6 +59,15 @@ export default class PVector {
 
     if (m !== 0) {
       this.div(m);
+    }
+  }
+
+  limit(max) {
+    const m = this.mag();
+
+    if (m > max) {
+      this.normalize();
+      this.mult(max)
     }
   }
 }
