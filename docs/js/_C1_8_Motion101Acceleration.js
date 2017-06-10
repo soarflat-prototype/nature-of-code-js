@@ -175,6 +175,39 @@ var PVector = function () {
         this.mult(max);
       }
     }
+  }], [{
+    key: "random2D",
+    value: function random2D() {
+      this.x = Math.random() * 2 - 1;
+      this.y = Math.random() * 2 - 1;
+
+      this.staticNormalize();
+
+      return {
+        x: this.x,
+        y: this.y
+      };
+    }
+  }, {
+    key: "staticNormalize",
+    value: function staticNormalize() {
+      var m = this.staticMag();
+
+      if (m !== 0) {
+        this.staticDiv(m);
+      }
+    }
+  }, {
+    key: "staticMag",
+    value: function staticMag() {
+      return Math.sqrt(this.x * this.x + this.y * this.y);
+    }
+  }, {
+    key: "staticDiv",
+    value: function staticDiv(n) {
+      this.x = this.x / n;
+      this.y = this.y / n;
+    }
   }]);
 
   return PVector;

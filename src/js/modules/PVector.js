@@ -70,4 +70,33 @@ export default class PVector {
       this.mult(max)
     }
   }
+
+  static random2D() {
+    this.x = (Math.random() * 2) - 1;
+    this.y = (Math.random() * 2) - 1;
+
+    this.staticNormalize();
+
+    return {
+      x: this.x,
+      y: this.y
+    };
+  }
+
+  static staticNormalize() {
+    const m = this.staticMag();
+
+    if (m !== 0) {
+      this.staticDiv(m);
+    }
+  }
+
+  static staticMag() {
+    return Math.sqrt(this.x * this.x + this.y * this.y);
+  }
+
+  static staticDiv(n) {
+    this.x = this.x / n;
+    this.y = this.y / n;
+  }
 }
