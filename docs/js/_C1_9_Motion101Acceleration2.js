@@ -143,7 +143,7 @@ var PVector = function () {
     }
 
     /**
-     * ベクトルの大きさを算出する
+     * ベクトルの大きさを返す
      */
 
   }, {
@@ -153,7 +153,7 @@ var PVector = function () {
     }
 
     /**
-     * 正規化
+     * 正規化（ベクトルの大きさを維持しつつ、大きさを1にすること）
      */
 
   }, {
@@ -165,6 +165,12 @@ var PVector = function () {
         this.div(m);
       }
     }
+
+    /**
+     * ベクトルの大きさが引数maxより大きい場合、ベクトルの大きさをmaxにする。
+     * @param {number} max - ベクトルの最大値
+     */
+
   }, {
     key: "limit",
     value: function limit(max) {

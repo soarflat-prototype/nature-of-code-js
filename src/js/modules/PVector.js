@@ -45,14 +45,14 @@ export default class PVector {
   }
 
   /**
-   * ベクトルの大きさを算出する
+   * ベクトルの大きさを返す
    */
   mag() {
     return Math.sqrt(this.x * this.x + this.y * this.y);
   }
 
   /**
-   * 正規化
+   * 正規化（ベクトルの大きさを維持しつつ、大きさを1にすること）
    */
   normalize() {
     const m = this.mag();
@@ -62,6 +62,10 @@ export default class PVector {
     }
   }
 
+  /**
+   * ベクトルの大きさが引数maxより大きい場合、ベクトルの大きさをmaxにする。
+   * @param {number} max - ベクトルの最大値
+   */
   limit(max) {
     const m = this.mag();
 
