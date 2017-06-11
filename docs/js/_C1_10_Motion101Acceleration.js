@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -236,10 +236,7 @@ var PVector = function () {
 exports.default = PVector;
 
 /***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -266,15 +263,26 @@ var Mover = function () {
     this.ctx.fillStyle = 'white';
     this.location = new _PVector2.default(this.cw / 2, this.ch / 2);
     this.velocity = new _PVector2.default(0, 0);
+    this.direction = new _PVector2.default(0, 0);
+    this.mouse = {
+      x: 0,
+      y: 0
+    };
     this.radius = 10;
     this.topSpeed = 5;
     this.animation = this.animation.bind(this);
+    this.addEventListener();
   }
 
   _createClass(Mover, [{
     key: 'update',
     value: function update() {
-      var acceleration = _PVector2.default.random2D();
+      var dir = _PVector2.default.sub(this.mouse, this.location);
+      this.direction.set(dir.x, dir.y);
+      this.direction.normalize();
+      this.direction.mult(0.5);
+
+      var acceleration = this.direction;
 
       this.velocity.add(acceleration);
       this.velocity.limit(this.topSpeed);
@@ -310,6 +318,16 @@ var Mover = function () {
       this.update();
       this.checkEdges();
       this.draw();
+    }
+  }, {
+    key: 'addEventListener',
+    value: function addEventListener() {
+      var _this = this;
+
+      this.canvas.addEventListener('mousemove', function (e) {
+        _this.mouse.x = e.clientX;
+        _this.mouse.y = e.clientY;
+      });
     }
   }]);
 

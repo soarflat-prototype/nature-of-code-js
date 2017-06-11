@@ -75,6 +75,11 @@ export default class PVector {
     }
   }
 
+  set(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
   static random2D() {
     this.x = (Math.random() * 2) - 1;
     this.y = (Math.random() * 2) - 1;
@@ -84,6 +89,13 @@ export default class PVector {
     return {
       x: this.x,
       y: this.y
+    };
+  }
+
+  static sub(v1, v2) {
+    return {
+      x: v1.x - v2.x,
+      y: v1.y - v2.y,
     };
   }
 

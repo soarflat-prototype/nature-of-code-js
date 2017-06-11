@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -181,6 +181,12 @@ var PVector = function () {
         this.mult(max);
       }
     }
+  }, {
+    key: "set",
+    value: function set(x, y) {
+      this.x = x;
+      this.y = y;
+    }
   }], [{
     key: "random2D",
     value: function random2D() {
@@ -192,6 +198,14 @@ var PVector = function () {
       return {
         x: this.x,
         y: this.y
+      };
+    }
+  }, {
+    key: "sub",
+    value: function sub(v1, v2) {
+      return {
+        x: v1.x - v2.x,
+        y: v1.y - v2.y
       };
     }
   }, {
@@ -223,7 +237,8 @@ exports.default = PVector;
 
 /***/ }),
 /* 1 */,
-/* 2 */
+/* 2 */,
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
