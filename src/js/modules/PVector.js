@@ -8,16 +8,16 @@ export default class PVector {
    * @param {number} y - y方向のベクトル
    */
   constructor(x, y) {
-    this.x = x;
-    this.y = y;
+    this.x = (x) ? x : 0;
+    this.y = (y) ? y : 0;
   }
 
   /**
    * 加算
    */
   add(v) {
-    this.x = this.x - v.x;
-    this.y = this.y - v.y;
+    this.x = this.x + v.x;
+    this.y = this.y + v.y;
   }
 
   /**
@@ -80,6 +80,13 @@ export default class PVector {
     this.y = y;
   }
 
+  get() {
+    return {
+      x: this.x,
+      y: this.y,
+    };
+  }
+
   static random2D() {
     this.x = (Math.random() * 2) - 1;
     this.y = (Math.random() * 2) - 1;
@@ -114,5 +121,15 @@ export default class PVector {
   static staticDiv(n) {
     this.x = this.x / n;
     this.y = this.y / n;
+  }
+
+  static staticDiv2(n1, n2) {
+    const x = n1.x / n2;
+    const y = n1.y / n2;
+
+    return {
+      x,
+      y
+    };
   }
 }

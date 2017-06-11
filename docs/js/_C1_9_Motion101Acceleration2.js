@@ -94,8 +94,8 @@ var PVector = function () {
   function PVector(x, y) {
     _classCallCheck(this, PVector);
 
-    this.x = x;
-    this.y = y;
+    this.x = x ? x : 0;
+    this.y = y ? y : 0;
   }
 
   /**
@@ -106,8 +106,8 @@ var PVector = function () {
   _createClass(PVector, [{
     key: "add",
     value: function add(v) {
-      this.x = this.x - v.x;
-      this.y = this.y - v.y;
+      this.x = this.x + v.x;
+      this.y = this.y + v.y;
     }
 
     /**
@@ -188,6 +188,14 @@ var PVector = function () {
       this.x = x;
       this.y = y;
     }
+  }, {
+    key: "get",
+    value: function get() {
+      return {
+        x: this.x,
+        y: this.y
+      };
+    }
   }], [{
     key: "random2D",
     value: function random2D() {
@@ -228,6 +236,17 @@ var PVector = function () {
     value: function staticDiv(n) {
       this.x = this.x / n;
       this.y = this.y / n;
+    }
+  }, {
+    key: "staticDiv2",
+    value: function staticDiv2(n1, n2) {
+      var x = n1.x / n2;
+      var y = n1.y / n2;
+
+      return {
+        x: x,
+        y: y
+      };
     }
   }]);
 
