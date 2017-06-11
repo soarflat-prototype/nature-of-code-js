@@ -63,12 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -237,8 +236,8 @@ var PVector = function () {
 exports.default = PVector;
 
 /***/ }),
-
-/***/ 5:
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -265,15 +264,25 @@ var Mover = function () {
     this.ctx.fillStyle = 'white';
     this.location = new _PVector2.default(this.cw / 2, this.ch / 2);
     this.velocity = new _PVector2.default(0, 0);
+    this.direction = new _PVector2.default(0, 0);
+    this.mouse = {
+      x: 0,
+      y: 0
+    };
     this.radius = 10;
-    this.topSpeed = 5;
-    this.animation = this.animation.bind(this);
+    this.topSpeed = Math.random() * 5 + 10;
+    this.addEventListener();
   }
 
   _createClass(Mover, [{
     key: 'update',
     value: function update() {
-      var acceleration = _PVector2.default.random2D();
+      var dir = _PVector2.default.sub(this.mouse, this.location);
+      this.direction.set(dir.x, dir.y);
+      this.direction.normalize();
+      this.direction.mult(0.5);
+
+      var acceleration = this.direction;
 
       this.velocity.add(acceleration);
       this.velocity.limit(this.topSpeed);
@@ -297,12 +306,43 @@ var Mover = function () {
   }, {
     key: 'draw',
     value: function draw() {
-      this.ctx.clearRect(0, 0, this.cw, this.ch);
       this.ctx.beginPath();
       this.ctx.arc(this.location.x, this.location.y, this.radius, 0, 2 * Math.PI);
       this.ctx.fill();
     }
   }, {
+    key: 'addEventListener',
+    value: function addEventListener() {
+      var _this = this;
+
+      this.canvas.addEventListener('mousemove', function (e) {
+        _this.mouse.x = e.clientX;
+        _this.mouse.y = e.clientY;
+      });
+    }
+  }]);
+
+  return Mover;
+}();
+
+var Movers = function () {
+  function Movers() {
+    _classCallCheck(this, Movers);
+
+    this.canvas = document.getElementById('canvas');
+    this.ctx = this.canvas.getContext('2d');
+    this.canvas.width = this.cw = window.innerWidth;
+    this.canvas.height = this.ch = window.innerHeight;
+    this.movers = [];
+    this.count = 20;
+    this.animation = this.animation.bind(this);
+
+    for (var i = 0; i < this.count; i += 1) {
+      this.movers.push(new Mover());
+    }
+  }
+
+  _createClass(Movers, [{
     key: 'animation',
     value: function animation() {
       window.requestAnimationFrame(this.animation);
@@ -310,15 +350,36 @@ var Mover = function () {
       this.checkEdges();
       this.draw();
     }
+  }, {
+    key: 'update',
+    value: function update() {
+      for (var i = 0; i < this.count; i += 1) {
+        this.movers[i].update();
+      }
+    }
+  }, {
+    key: 'checkEdges',
+    value: function checkEdges() {
+      for (var i = 0; i < this.count; i += 1) {
+        this.movers[i].checkEdges();
+      }
+    }
+  }, {
+    key: 'draw',
+    value: function draw() {
+      this.ctx.clearRect(0, 0, this.cw, this.ch);
+      for (var i = 0; i < this.count; i += 1) {
+        this.movers[i].draw();
+      }
+    }
   }]);
 
-  return Mover;
+  return Movers;
 }();
 
-var mover = new Mover();
+var movers = new Movers();
 
-mover.animation();
+movers.animation();
 
 /***/ })
-
-/******/ });
+/******/ ]);

@@ -5,7 +5,8 @@ module.exports = {
     _C1_7_Motion101: './src/js/_C1_7_Motion101',
     _C1_8_Motion101Acceleration: './src/js/_C1_8_Motion101Acceleration',
     _C1_9_Motion101Acceleration2: './src/js/_C1_9_Motion101Acceleration2',
-    _C1_10_Motion101Acceleration: './src/js/_C1_10_Motion101Acceleration'
+    _C1_10_Motion101Acceleration: './src/js/_C1_10_Motion101Acceleration',
+    _C1_11_Motion101AccelerationArray: './src/js/_C1_11_Motion101AccelerationArray',
   },
 
   output: {
