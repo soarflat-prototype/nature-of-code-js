@@ -8,6 +8,7 @@ module.exports = {
     _C1_10_Motion101Acceleration: './src/js/_C1_10_Motion101Acceleration',
     _C1_11_Motion101AccelerationArray: './src/js/_C1_11_Motion101AccelerationArray',
     _C2_1_ForcesTrail: './src/js/_C2_1_ForcesTrail',
+    _C2_2_ForcesManyTrail: './src/js/_C2_2_ForcesManyTrail',
   },
 
   output: {
