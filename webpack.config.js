@@ -10,6 +10,7 @@ module.exports = {
     _C2_1_ForcesTrail: './src/js/_C2_1_ForcesTrail',
     _C2_2_ForcesManyTrail: './src/js/_C2_2_ForcesManyTrail',
     _C2_3_ForcesManyRealGravity: './src/js/_C2_3_ForcesManyRealGravity',
+    _C2_4_ForcesFriction: './src/js/_C2_4_ForcesFriction',
   },
 
   output: {
