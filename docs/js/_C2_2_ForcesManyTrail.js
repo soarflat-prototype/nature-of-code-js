@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -257,7 +257,23 @@ exports.default = PVector;
 
 /***/ }),
 
-/***/ 7:
+/***/ 1:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = random;
+function random(min, max) {
+  return Math.random() * (max + 1 - min) + min;
+}
+
+/***/ }),
+
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -269,7 +285,7 @@ var _PVector = __webpack_require__(0);
 
 var _PVector2 = _interopRequireDefault(_PVector);
 
-var _random = __webpack_require__(8);
+var _random = __webpack_require__(1);
 
 var _random2 = _interopRequireDefault(_random);
 
@@ -403,22 +419,6 @@ var Movers = function () {
 var movers = new Movers();
 
 movers.animation();
-
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = random;
-function random(min, max) {
-  return Math.random() * (max + 1 - min) + min;
-}
 
 /***/ })
 
