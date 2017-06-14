@@ -132,4 +132,16 @@ export default class PVector {
       y
     };
   }
+
+  /**
+   * @method constrain
+   * @param  {Number} n    number to constrain
+   * @param  {Number} min  minimum limit
+   * @param  {Number} max  maximum limit
+   * @return {Number}      constrained number
+   */
+
+  static constrain(n, min, max) {
+    return Math.max(Math.min(n, max), min);
+  }
 }

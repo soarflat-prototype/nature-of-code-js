@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -287,7 +287,7 @@ function random(min, max) {
 
 /***/ }),
 
-/***/ 10:
+/***/ 12:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -307,7 +307,65 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var Attractor = function () {
+  function Attractor() {
+    _classCallCheck(this, Attractor);
+
+    this.canvas = document.getElementById('canvas');
+    this.canvas.width = this.cw = window.innerWidth;
+    this.canvas.height = this.ch = window.innerHeight;
+    this.ctx = this.canvas.getContext('2d');
+
+    // Vector Setup
+    this.location = new _PVector2.default(this.cw / 2, this.ch / 2);
+    this.mass = 30;
+    this.G = 1;
+  }
+
+  _createClass(Attractor, [{
+    key: 'draw',
+    value: function draw() {
+      this.ctx.fillStyle = 'white';
+      this.ctx.beginPath();
+      this.ctx.arc(this.location.x, this.location.y, this.mass, 0, 2 * Math.PI);
+      this.ctx.fill();
+    }
+  }, {
+    key: 'attract',
+    value: function attract(mover) {
+      var direction = _PVector2.default.sub(this.location, mover.location);
+      var force = new _PVector2.default(direction.x, direction.y);
+      var distance = force.mag();
+      distance = _PVector2.default.constrain(distance, 5, 20);
+
+      force.normalize();
+      var strength = this.G * this.mass * mover.mass / (distance * distance);
+      force.mult(strength);
+
+      return force;
+    }
+  }]);
+
+  return Attractor;
+}();
+
 var Mover = function () {
+  function Mover(x, y) {
+    _classCallCheck(this, Mover);
+
+    // Canvas Setup
+    this.canvas = document.getElementById('canvas');
+    this.canvas.width = this.cw = window.innerWidth;
+    this.canvas.height = this.ch = window.innerHeight;
+    this.ctx = this.canvas.getContext('2d');
+
+    // Vector Setup
+    this.location = new _PVector2.default(x, y);
+    this.velocity = new _PVector2.default(1, 0);
+    this.acceleration = new _PVector2.default(0, 0);
+    this.mass = 1;
+  }
+
   _createClass(Mover, [{
     key: 'applyForce',
     value: function applyForce(force) {
@@ -318,71 +376,19 @@ var Mover = function () {
       f.y = f.y / this.mass;
       this.acceleration.add(f);
     }
-  }]);
-
-  function Mover(x, y, mass) {
-    _classCallCheck(this, Mover);
-
-    // Canvas Setup
-    this.canvas = document.getElementById('canvas');
-    this.canvas.width = this.cw = window.innerWidth;
-    this.canvas.height = this.ch = window.innerHeight;
-    this.ctx = this.canvas.getContext('2d');
-    this.ctx.fillStyle = 'white';
-
-    // Vector Setup
-    this.location = new _PVector2.default(x, y);
-    this.velocity = new _PVector2.default(0, 0);
-    this.acceleration = new _PVector2.default(0, 0);
-    this.mass = mass;
-    this.wind = new _PVector2.default(0.01, 0);
-    this.gravity = new _PVector2.default(0, 0.1 * mass);
-    // 摩擦係数
-    this.c = 0.1;
-    // 垂直抗力
-    this.normal = 1;
-    this.frictionMag = this.c * this.normal;
-  }
-
-  _createClass(Mover, [{
+  }, {
     key: 'update',
     value: function update() {
-      var friction = new _PVector2.default(this.velocity.get().x, this.velocity.get().y);
-      friction.mult(-1);
-      friction.normalize();
-      friction.mult(this.frictionMag);
-
-      this.applyForce(friction);
-      this.applyForce(this.wind);
-      this.applyForce(this.gravity);
       this.velocity.add(this.acceleration);
       this.location.add(this.velocity);
       this.acceleration.mult(0);
     }
   }, {
-    key: 'checkEdges',
-    value: function checkEdges() {
-      if (this.location.x > this.cw) {
-        this.location.x = this.cw;
-        this.velocity.x *= -1;
-      } else if (this.location.x < 0) {
-        this.location.x = 0;
-        this.velocity.x *= -1;
-      }
-
-      if (this.location.y > this.ch) {
-        this.location.y = this.ch;
-        this.velocity.y *= -1;
-      } else if (this.location.y < 0) {
-        this.location.y = 0;
-        this.velocity.y *= -1;
-      }
-    }
-  }, {
     key: 'draw',
     value: function draw() {
+      this.ctx.fillStyle = 'white';
       this.ctx.beginPath();
-      this.ctx.arc(this.location.x, this.location.y, this.mass, 0, 2 * Math.PI);
+      this.ctx.arc(this.location.x, this.location.y, 10, 0, 2 * Math.PI);
       this.ctx.fill();
     }
   }]);
@@ -390,62 +396,47 @@ var Mover = function () {
   return Mover;
 }();
 
-var Movers = function () {
-  function Movers() {
-    _classCallCheck(this, Movers);
+var Main = function () {
+  function Main() {
+    _classCallCheck(this, Main);
 
     this.canvas = document.getElementById('canvas');
-    this.ctx = this.canvas.getContext('2d');
     this.canvas.width = this.cw = window.innerWidth;
     this.canvas.height = this.ch = window.innerHeight;
-    this.movers = [];
-    this.count = 30;
-    this.animation = this.animation.bind(this);
+    this.ctx = this.canvas.getContext('2d');
 
-    for (var i = 0; i < this.count; i += 1) {
-      this.movers.push(new Mover(0, 0, (0, _random2.default)(5, 15)));
-    }
+    this.mover = new Mover(this.cw / 3, this.ch / 4);
+    this.attractor = new Attractor();
+    this.animation = this.animation.bind(this);
   }
 
-  _createClass(Movers, [{
-    key: 'animation',
-    value: function animation() {
-      window.requestAnimationFrame(this.animation);
-      this.update();
-      this.checkEdges();
-      this.draw();
-    }
-  }, {
-    key: 'update',
-    value: function update() {
-      this.movers.forEach(function (mover) {
-        mover.update();
-      });
-    }
-  }, {
-    key: 'checkEdges',
-    value: function checkEdges() {
-      this.movers.forEach(function (mover) {
-        mover.checkEdges();
-      });
-    }
-  }, {
+  _createClass(Main, [{
     key: 'draw',
     value: function draw() {
       this.ctx.clearRect(0, 0, this.cw, this.ch);
 
-      this.movers.forEach(function (mover) {
-        mover.draw();
-      });
+      var f = this.attractor.attract(this.mover);
+
+      this.mover.applyForce(f);
+      this.mover.update();
+
+      this.attractor.draw();
+      this.mover.draw();
+    }
+  }, {
+    key: 'animation',
+    value: function animation() {
+      window.requestAnimationFrame(this.animation);
+      this.draw();
     }
   }]);
 
-  return Movers;
+  return Main;
 }();
 
-var movers = new Movers();
+var main = new Main();
 
-movers.animation();
+main.animation();
 
 /***/ })
 

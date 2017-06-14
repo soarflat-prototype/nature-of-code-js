@@ -12,6 +12,7 @@ module.exports = {
     _C2_3_ForcesManyRealGravity: './src/js/_C2_3_ForcesManyRealGravity',
     _C2_4_ForcesFriction: './src/js/_C2_4_ForcesFriction',
     _C2_5_FluidResistance: './src/js/_C2_5_FluidResistance.js',
+    _C2_6_AttractionTrail: './src/js/_C2_6_AttractionTrail.js',
   },
 
   output: {

@@ -247,6 +247,20 @@ var PVector = function () {
         y: y
       };
     }
+
+    /**
+     * @method constrain
+     * @param  {Number} n    number to constrain
+     * @param  {Number} min  minimum limit
+     * @param  {Number} max  maximum limit
+     * @return {Number}      constrained number
+     */
+
+  }, {
+    key: "constrain",
+    value: function constrain(n, min, max) {
+      return Math.max(Math.min(n, max), min);
+    }
   }]);
 
   return PVector;
