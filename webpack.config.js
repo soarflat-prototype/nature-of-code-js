@@ -13,6 +13,7 @@ module.exports = {
     _C2_4_ForcesFriction: './src/js/_C2_4_ForcesFriction',
     _C2_5_FluidResistance: './src/js/_C2_5_FluidResistance.js',
     _C2_6_AttractionTrail: './src/js/_C2_6_AttractionTrail.js',
+    _C2_7_AttractionMany: './src/js/_C2_7_AttractionMany.js',
   },
 
   output: {
