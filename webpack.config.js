@@ -15,6 +15,7 @@ module.exports = {
     _C2_6_AttractionTrail: './src/js/_C2_6_AttractionTrail.js',
     _C2_7_AttractionMany: './src/js/_C2_7_AttractionMany.js',
     _C2_8_MutualAttractionTrail: './src/js/_C2_8_MutualAttractionTrail.js',
+    _C3_1_AngularMotion: './src/js/_C3_1_AngularMotion.js',
   },
 
   output: {
