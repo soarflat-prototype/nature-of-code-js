@@ -241,17 +241,6 @@ var PVector = function () {
       this.x = this.x / n;
       this.y = this.y / n;
     }
-  }, {
-    key: "staticDiv2",
-    value: function staticDiv2(n1, n2) {
-      var x = n1.x / n2;
-      var y = n1.y / n2;
-
-      return {
-        x: x,
-        y: y
-      };
-    }
 
     /**
      * @method constrain
