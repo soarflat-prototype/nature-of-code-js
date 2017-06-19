@@ -31,7 +31,6 @@ module.exports = {
       use: [{
         loader: 'babel-loader',
         query: {
-          cacheDirectory: true,
           presets: ['env'],
         },
       }],
