@@ -127,16 +127,6 @@ export default class PVector {
     this.y = this.y / n;
   }
 
-  static staticDiv2(n1, n2) {
-    const x = n1.x / n2;
-    const y = n1.y / n2;
-
-    return {
-      x,
-      y
-    };
-  }
-
   /**
    * @method constrain
    * @param  {Number} n    number to constrain
