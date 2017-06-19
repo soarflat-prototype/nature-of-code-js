@@ -5,6 +5,7 @@
   "author": "soarflat",
   "license": "MIT",
   "devDependencies": {
+    "assert": "^1.4.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.1",
@@ -23,7 +24,6 @@
     "watch": "npm-run-all --parallel watch:*"
   },
   "dependencies": {
-    "assert": "^1.4.1",
     "reset-css": "^2.2.0"
   }
 }
