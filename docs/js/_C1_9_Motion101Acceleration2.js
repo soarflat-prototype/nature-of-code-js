@@ -86,7 +86,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * ベクトルの演算をするクラス
  */
 var PVector = function () {
-
   /**
    * @param {number} x - x方向のベクトル
    * @param {number} y - y方向のベクトル
@@ -99,7 +98,8 @@ var PVector = function () {
   }
 
   /**
-   * 加算
+   * メンバ変数(x, y)に引数vのメンバ変数(x, y)を加算する
+   * @param {object} v PVectorのインスタンス
    */
 
 
@@ -111,7 +111,8 @@ var PVector = function () {
     }
 
     /**
-     * 減算
+     * メンバ変数(x, y)に引数vのメンバ変数(x, y)を減算する
+     * @param {object} v PVectorのインスタンス
      */
 
   }, {
@@ -122,7 +123,8 @@ var PVector = function () {
     }
 
     /**
-     * 掛け算
+     * メンバ変数(x, y)を引数で乗算する
+     * @param {number} n 乗数
      */
 
   }, {
@@ -133,7 +135,8 @@ var PVector = function () {
     }
 
     /**
-     * 割り算
+     * メンバ変数(x, y)を引数で除算する
+     * @param {number} n 除数
      */
 
   }, {
@@ -145,6 +148,7 @@ var PVector = function () {
 
     /**
      * ベクトルの大きさを返す
+     * @return {number} ベクトルの大きさ
      */
 
   }, {
@@ -154,7 +158,7 @@ var PVector = function () {
     }
 
     /**
-     * 正規化（ベクトルの大きさを維持しつつ、大きさを1にすること）
+     * 正規化（ベクトルの大きさを維持しつつ、大きさを1にすること）をする
      */
 
   }, {
@@ -168,7 +172,7 @@ var PVector = function () {
     }
 
     /**
-     * ベクトルの大きさが引数maxより大きい場合、ベクトルの大きさをmaxにする。
+     * ベクトルの大きさが引数maxより大きい場合、ベクトルの大きさをmaxにする
      * @param {number} max - ベクトルの最大値
      */
 
