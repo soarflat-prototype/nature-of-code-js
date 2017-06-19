@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -241,17 +241,6 @@ var PVector = function () {
       this.x = this.x / n;
       this.y = this.y / n;
     }
-  }, {
-    key: "staticDiv2",
-    value: function staticDiv2(n1, n2) {
-      var x = n1.x / n2;
-      var y = n1.y / n2;
-
-      return {
-        x: x,
-        y: y
-      };
-    }
 
     /**
      * @method constrain
@@ -291,7 +280,7 @@ function random(min, max) {
 
 /***/ }),
 
-/***/ 16:
+/***/ 17:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
