@@ -2,7 +2,6 @@
  * ベクトルの演算をするクラス
  */
 export default class PVector {
-
   /**
    * @param {number} x - x方向のベクトル
    * @param {number} y - y方向のベクトル
@@ -13,7 +12,8 @@ export default class PVector {
   }
 
   /**
-   * 加算
+   * メンバ変数(x, y)に引数vのメンバ変数(x, y)を加算する
+   * @param {object} v PVectorのインスタンス
    */
   add(v) {
     this.x = this.x + v.x;
@@ -21,7 +21,8 @@ export default class PVector {
   }
 
   /**
-   * 減算
+   * メンバ変数(x, y)に引数vのメンバ変数(x, y)を減算する
+   * @param {object} v PVectorのインスタンス
    */
   sub(v) {
     this.x = this.x - v.x;
@@ -29,7 +30,8 @@ export default class PVector {
   }
 
   /**
-   * 掛け算
+   * メンバ変数(x, y)を引数で乗算する
+   * @param {number} n 乗数
    */
   mult(n) {
     this.x = this.x * n;
@@ -37,7 +39,8 @@ export default class PVector {
   }
 
   /**
-   * 割り算
+   * メンバ変数(x, y)を引数で除算する
+   * @param {number} n 除数
    */
   div(n) {
     this.x = this.x / n;
@@ -46,13 +49,14 @@ export default class PVector {
 
   /**
    * ベクトルの大きさを返す
+   * @return {number} ベクトルの大きさ
    */
   mag() {
     return Math.sqrt(this.x * this.x + this.y * this.y);
   }
 
   /**
-   * 正規化（ベクトルの大きさを維持しつつ、大きさを1にすること）
+   * 正規化（ベクトルの大きさを維持しつつ、大きさを1にすること）をする
    */
   normalize() {
     const m = this.mag();
@@ -63,7 +67,7 @@ export default class PVector {
   }
 
   /**
-   * ベクトルの大きさが引数maxより大きい場合、ベクトルの大きさをmaxにする。
+   * ベクトルの大きさが引数maxより大きい場合、ベクトルの大きさをmaxにする
    * @param {number} max - ベクトルの最大値
    */
   limit(max) {
@@ -140,7 +144,6 @@ export default class PVector {
    * @param  {Number} max  maximum limit
    * @return {Number}      constrained number
    */
-
   static constrain(n, min, max) {
     return Math.max(Math.min(n, max), min);
   }
