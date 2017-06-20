@@ -15,8 +15,9 @@ module.exports = {
     _C2_6_AttractionTrail: './src/js/_C2_6_AttractionTrail.js',
     _C2_7_AttractionMany: './src/js/_C2_7_AttractionMany.js',
     _C2_8_MutualAttractionTrail: './src/js/_C2_8_MutualAttractionTrail.js',
-    'chapter_3/01_AngularMotion': './src/js/chapter_3/01_AngularMotion.js',
-    'chapter_3/02_ForcesAngularMotTrails': './src/js/chapter_3/02_ForcesAngularMotTrails.js',
+    'chapter_3/01_AngularMotion': './src/js/chapter_3/01_AngularMotion',
+    'chapter_3/02_ForcesAngularMotTrails': './src/js/chapter_3/02_ForcesAngularMotTrails',
+    'chapter_3/03_PointingVelocityTrail': './src/js/chapter_3/03_PointingVelocityTrail',
   },
 
   output: {
