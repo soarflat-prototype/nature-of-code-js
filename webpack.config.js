@@ -18,6 +18,7 @@ module.exports = {
     'chapter_3/01_AngularMotion': './src/js/chapter_3/01_AngularMotion',
     'chapter_3/02_ForcesAngularMotTrails': './src/js/chapter_3/02_ForcesAngularMotTrails',
     'chapter_3/03_PointingVelocityTrail': './src/js/chapter_3/03_PointingVelocityTrail',
+    'chapter_3/04_PolarToCartesianTrail': './src/js/chapter_3/04_PolarToCartesianTrail',
   },
 
   output: {
