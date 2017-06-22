@@ -1,7 +1,7 @@
 {
-  "name": "random-walk",
+  "name": "nature-of-code",
   "version": "1.0.0",
-  "description": "skeleton for canvas animation",
+  "description": "simulations of natural systems using JavaScript",
   "author": "soarflat",
   "license": "MIT",
   "devDependencies": {
