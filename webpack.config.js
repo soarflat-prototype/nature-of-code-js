@@ -19,6 +19,7 @@ module.exports = {
     'chapter_3/02_ForcesAngularMotTrails': './src/js/chapter_3/02_ForcesAngularMotTrails',
     'chapter_3/03_PointingVelocityTrail': './src/js/chapter_3/03_PointingVelocityTrail',
     'chapter_3/04_PolarToCartesianTrail': './src/js/chapter_3/04_PolarToCartesianTrail',
+    'chapter_3/05_SimpleHarmonicMotTail': './src/js/chapter_3/05_SimpleHarmonicMotTail',
   },
 
   output: {
