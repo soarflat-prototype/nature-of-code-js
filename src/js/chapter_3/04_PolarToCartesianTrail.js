@@ -1,5 +1,3 @@
-import PVector from '../modules/PVector';
-
 class Sketch {
   constructor() {
     this.canvas = document.getElementById('canvas');
