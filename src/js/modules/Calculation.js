@@ -1,8 +1,6 @@
 export default class Calculation {
   /**
    * ある範囲から別の範囲に数値を再マップする
-   *
-   * @method map
    * @param  {Number} value  変換される値
    * @param  {Number} start1 現在の値の範囲の下限
    * @param  {Number} stop1  現在の値の範囲の上限
