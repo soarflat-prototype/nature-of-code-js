@@ -22,6 +22,7 @@ module.exports = {
     'chapter_3/05_SimpleHarmonicMotTail': './src/js/chapter_3/05_SimpleHarmonicMotTail',
     'chapter_3/06_SimpleHarmonicMotTail2': './src/js/chapter_3/06_SimpleHarmonicMotTail2',
     'chapter_3/07_OscillatingObjectsTrail': './src/js/chapter_3/07_OscillatingObjectsTrail',
+    'chapter_3/08_StaticWaveLines': './src/js/chapter_3/08_StaticWaveLines',
   },
 
   output: {
