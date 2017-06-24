@@ -1,5 +1,5 @@
-import PVector from './modules/PVector';
-import random from './modules/random';
+import PVector from '../modules/PVector';
+import random from '../modules/random';
 
 class Mover {
   applyForce(force) {

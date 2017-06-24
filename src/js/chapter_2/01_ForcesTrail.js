@@ -1,4 +1,4 @@
-import PVector from './modules/PVector';
+import PVector from '../modules/PVector';
 
 class Mover {
   constructor() {
