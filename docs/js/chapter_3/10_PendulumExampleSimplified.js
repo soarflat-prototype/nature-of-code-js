@@ -264,52 +264,6 @@ exports.default = PVector;
 
 /***/ }),
 
-/***/ 2:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Calculation = function () {
-  function Calculation() {
-    _classCallCheck(this, Calculation);
-  }
-
-  _createClass(Calculation, null, [{
-    key: "map",
-
-    /**
-     * ある範囲から別の範囲に数値を再マップする
-     * @param  {Number} value  変換される値
-     * @param  {Number} start1 現在の値の範囲の下限
-     * @param  {Number} stop1  現在の値の範囲の上限
-     * @param  {Number} start2 再マップしたい値の範囲の下限
-     * @param  {Number} stop2  再マップしたい値の範囲の上限
-     * @return {Number}        再マップされた数値
-     * @example
-     * // returns 100
-     * map(50, 0, 100, 0, 200)
-     */
-    value: function map(value, start1, stop1, start2, stop2) {
-      return (value - start1) / (stop1 - start1) * (stop2 - start2) + start2;
-    }
-  }]);
-
-  return Calculation;
-}();
-
-exports.default = Calculation;
-
-/***/ }),
-
 /***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -321,10 +275,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _PVector = __webpack_require__(0);
 
 var _PVector2 = _interopRequireDefault(_PVector);
-
-var _Calculation = __webpack_require__(2);
-
-var _Calculation2 = _interopRequireDefault(_Calculation);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

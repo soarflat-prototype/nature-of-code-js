@@ -1,5 +1,4 @@
 import PVector from '../modules/PVector';
-import Calculation from '../modules/Calculation';
 
 class Pendulum {
   constructor() {
