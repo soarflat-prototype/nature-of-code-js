@@ -24,6 +24,7 @@ module.exports = {
     'chapter_3/07_OscillatingObjectsTrail': './src/js/chapter_3/07_OscillatingObjectsTrail',
     'chapter_3/08_StaticWaveLines': './src/js/chapter_3/08_StaticWaveLines',
     'chapter_3/09_Wave': './src/js/chapter_3/09_Wave',
+    'chapter_3/10_PendulumExampleSimplified': './src/js/chapter_3/10_PendulumExampleSimplified',
   },
 
   output: {

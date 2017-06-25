@@ -1,40 +1,46 @@
+import PVector from '../modules/PVector';
 import Calculation from '../modules/Calculation';
 
 class Pendulum {
-
-}
-
-
-class Sketch {
   constructor() {
     this.canvas = document.getElementById('canvas');
     this.canvas.width = this.cw = window.innerWidth;
     this.canvas.height = this.ch = window.innerHeight;
     this.ctx = this.canvas.getContext('2d');
+    this.ctx.strokeStyle = 'white';
     this.ctx.fillStyle = 'white';
-    this.ctx.globalAlpha = 0.8;
-    this.startAngle = 0;
-    this.aVelocity = 0.1;
+
+    this.location = new PVector(0, 0);
+    this.origin = new PVector(this.cw / 2, 0);
+    this.r = 200;
+    this.angle = Math.PI / 4;
+    this.aVelocity = 0.0;
+    this.aAcceleration = 0.0;
+    this.damping = 0.995;
+    this.gravity = 0.4;
     this.animation = this.animation.bind(this);
   }
 
   update() {
-    this.startAngle += 0.02;
+    this.aAcceleration = (-1 * this.gravity / this.r) * Math.sin(this.angle);
+    this.aVelocity += this.aAcceleration;
+    this.angle += this.aVelocity;
+    this.aVelocity *= this.damping;
   }
 
   draw() {
-    let angle = this.startAngle;
-
     this.ctx.clearRect(0, 0, this.cw, this.ch);
-    this.ctx.beginPath();
+    this.location.set(this.r * Math.sin(this.angle), this.r * Math.cos(this.angle));
+    this.location.add(this.origin);
 
-    for (let x = 0; x <= this.cw; x += 24) {
-      const y = Calculation.map(Math.sin(angle), -1, 1, 0, this.ch);
-      this.ctx.beginPath();
-      this.ctx.arc(x, y, 30, 0, 2 * Math.PI);
-      this.ctx.fill();
-      angle += this.aVelocity;
-    }
+    this.ctx.beginPath();
+    this.ctx.moveTo(this.origin.x, this.origin.y);
+    this.ctx.lineTo(this.location.x, this.location.y);
+    this.ctx.stroke();
+
+    this.ctx.beginPath();
+    this.ctx.arc(this.location.x, this.location.y, 30, 0, 2 * Math.PI);
+    this.ctx.fill();
   }
 
   animation() {
@@ -44,6 +50,6 @@ class Sketch {
   }
 }
 
-const sketch = new Sketch();
+const pendulum = new Pendulum();
 
-sketch.animation();
+pendulum.animation();
