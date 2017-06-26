@@ -300,12 +300,15 @@ var Bob = function (_Canvas) {
 
     var _this = _possibleConstructorReturn(this, (Bob.__proto__ || Object.getPrototypeOf(Bob)).call(this, option));
 
-    _this.location = new _PVector2.default(_this.cw / 2, 200);
+    _this.location = new _PVector2.default(_this.cw / 2, 300);
     _this.velocity = new _PVector2.default(0, 0);
     _this.acceleration = new _PVector2.default(0, 0);
     _this.gravity = new _PVector2.default(0, 20);
     _this.damping = 0.98;
     _this.mass = 24;
+    _this.c = 0.5;
+    _this.normal = 1;
+    _this.frictionMag = _this.c * _this.normal;
     return _this;
   }
 
@@ -321,6 +324,12 @@ var Bob = function (_Canvas) {
   }, {
     key: 'update',
     value: function update() {
+      var friction = new _PVector2.default(this.velocity.get().x, this.velocity.get().y);
+      friction.mult(-1);
+      friction.normalize();
+      friction.mult(this.frictionMag);
+
+      this.applyForce(friction);
       this.applyForce(this.gravity);
       this.velocity.add(this.acceleration);
       this.location.add(this.velocity);

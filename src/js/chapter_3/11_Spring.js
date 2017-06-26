@@ -6,12 +6,15 @@ class Bob extends Canvas {
   constructor(option) {
     super(option);
 
-    this.location = new PVector(this.cw / 2, 200);
+    this.location = new PVector(this.cw / 2, 300);
     this.velocity = new PVector(0, 0);
     this.acceleration = new PVector(0, 0);
     this.gravity = new PVector(0, 20);
     this.damping = 0.98;
     this.mass = 24;
+    this.c = 0.5;
+    this.normal = 1;
+    this.frictionMag = this.c * this.normal;
   }
 
   applyForce(force) {
@@ -23,6 +26,12 @@ class Bob extends Canvas {
   }
 
   update() {
+    const friction = new PVector(this.velocity.get().x, this.velocity.get().y);
+    friction.mult(-1);
+    friction.normalize();
+    friction.mult(this.frictionMag);
+
+    this.applyForce(friction);
     this.applyForce(this.gravity);
     this.velocity.add(this.acceleration);
     this.location.add(this.velocity);
