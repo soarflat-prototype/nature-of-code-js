@@ -1,0 +1,64 @@
+extends ../include/_layout
+block var
+  - title = 'Nature of Code JS'
+block body
+  header
+    h1 Nature of Code JS
+
+  section
+    h2 chapter1
+    ul
+      -
+        var list = [
+        '01-BouncingBallNoVectors',
+        '03-VectorSubtraction',
+        '04-VectorMultiplication',
+        '05-VectorMagnitude',
+        '06-VectorNormalize',
+        '07-Motion101',
+        '08-Motion101Acceleration',
+        '09-Motion101Acceleration2',
+        '10-Motion101Acceleration',
+        '11-Motion101AccelerationArray'
+        ]
+      each item in list
+        li
+          a(href="chapter_1/" + item + ".html") #{item}
+
+  section
+    h2 chapter2
+    ul
+      -
+        var list = [
+        '01_ForcesTrail',
+        '02_ForcesManyTrail',
+        '03_ForcesManyRealGravity',
+        '04_ForcesFriction',
+        '05_FluidResistance',
+        '06_AttractionTrail',
+        '07_AttractionMany',
+        '08_MutualAttractionTrail'
+        ]
+      each item in list
+        li
+          a(href="chapter_2/" + item + ".html") #{item}
+
+  section
+    h2 chapter3
+    ul
+      -
+        var list = [
+        '01_AngularMotion',
+        '02_ForcesAngularMotTrails',
+        '03_PointingVelocityTrail',
+        '04_PolarToCartesianTrail',
+        '05_SimpleHarmonicMotTail',
+        '06_SimpleHarmonicMotTail2',
+        '07_OscillatingObjectsTrail',
+        '08_StaticWaveLines',
+        '09_Wave'
+        ]
+      each item in list
+        li
+          a(href="chapter_3/" + item + ".html") #{item}
+block end_of_body
